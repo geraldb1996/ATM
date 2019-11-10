@@ -37,6 +37,10 @@ function entregarDinero(){
 
 var caja = [];
 var entregado = []; //billetes a entregar al usuario
+caja.push( new billete (1000, 4));
+caja.push( new billete (500, 4));
+caja.push( new billete (200, 3));
+caja.push( new billete (100, 4));
 caja.push( new billete(50, 3));
 caja.push( new billete(20, 2));
 caja.push( new billete(10, 2));
