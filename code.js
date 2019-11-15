@@ -30,8 +30,42 @@ function entregarDinero(){
     for (e of entregado){
         if (e.cantidad > 0){
             resultado.innerHTML = resultado.innerHTML + e.cantidad + " billetes de $" + e.valor+"<br/>";
-            billeteImg.innerHTML = "<img src=\""+caja[contador].imagen+"\" width=\"150px\" />";
-            contador += 1;
+            
+            for (i = 0; i < e.cantidad; i++){
+                var img = document.createElement("img");
+                switch(e.valor){
+                    case 1000:
+                        img.src = caja[0].imagen;
+                        break;
+        
+                    case 500:
+                        img.src = caja[1].imagen;
+                        break;
+                    
+                    case 200:
+                        img.src = caja[2].imagen;
+                        break;
+        
+                    case 100:
+                        img.src = caja[3].imagen;
+                        break;
+        
+                    case 50:
+                        img.src = caja[4].imagen;
+                        break;
+        
+                    case 20:
+                        img.src = caja[5].imagen;
+                        break;
+        
+                    case 10:
+                        img.src = caja[6].imagen;
+                        break;
+                }
+                billeteImg.appendChild(img);
+
+
+            }
 
         }
 
