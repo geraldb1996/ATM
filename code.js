@@ -33,6 +33,8 @@ function entregarDinero(){
             
             for (i = 0; i < e.cantidad; i++){
                 var img = document.createElement("img");
+                img.width = "150";
+                img.height = "68";
                 switch(e.valor){
                     case 1000:
                         img.src = caja[0].imagen;
