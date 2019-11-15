@@ -1,3 +1,4 @@
+//Constructor de la clase Billete :3
 class billete{
     constructor(v, c, imagen){
         this.valor = v;
@@ -6,6 +7,8 @@ class billete{
     }
 }
 
+//Función para entregar el dinero
+//Se disparará al presionar el botón extraer
 function entregarDinero(){
     var t = document.getElementById("dinero");
     dinero = parseInt(t.value);
@@ -29,8 +32,9 @@ function entregarDinero(){
     else{
     for (e of entregado){
         if (e.cantidad > 0){
-            resultado.innerHTML = resultado.innerHTML + e.cantidad + " billetes de $" + e.valor+"<br/>";
+            resultado.innerHTML = resultado.innerHTML + e.cantidad + " billetes de $" + e.valor+"<br/>"; //agregando texto al documento
             
+            //ciclo for para agregar las imágenes
             for (i = 0; i < e.cantidad; i++){
                 var img = document.createElement("img");
                 img.width = "150";
@@ -87,10 +91,10 @@ caja.push( new billete(10, 2, "10.png"));
 var dinero;
 var div = 0;
 var papeles = 0;
-var contador = 0;
 
 var resultado = document.getElementById("resultado");
 var billeteImg = document.getElementById("billeteImg");
 
+//Enlazando con los elementos del html, va a detectar cuando se suelte el botón
 var b = document.getElementById("extraer");
-b.addEventListener("click", entregarDinero);
+b.addEventListener("mouseup", entregarDinero);
