@@ -10,6 +10,7 @@ class billete{
 //Función para entregar el dinero
 //Se disparará al presionar el botón extraer
 function entregarDinero(){
+    pruebaClick += 1;
     var t = document.getElementById("dinero");
     dinero = parseInt(t.value);
     for (var bi of caja){
@@ -32,13 +33,14 @@ function entregarDinero(){
     else{
     for (e of entregado){
         if (e.cantidad > 0){
-            resultado.innerHTML = resultado.innerHTML + e.cantidad + " billetes de $" + e.valor+"<br/>"; //agregando texto al documento
-            
+            resultado.innerHTML = resultado.innerHTML + e.cantidad + " billetes de $" + e.valor+" (PC="+pruebaClick+")<br/>"; //agregando texto al documento
+            var img = document.createElement("img");
+            img.width = "150";
+            img.height = "68";
+            billeteImg.appendChild(img);
             //ciclo for para agregar las imágenes
             for (i = 0; i < e.cantidad; i++){
-                var img = document.createElement("img");
-                img.width = "150";
-                img.height = "68";
+
                 switch(e.valor){
                     case 1000:
                         img.src = caja[0].imagen;
@@ -68,7 +70,6 @@ function entregarDinero(){
                         img.src = caja[6].imagen;
                         break;
                 }
-                billeteImg.appendChild(img);
 
 
             }
@@ -91,6 +92,8 @@ caja.push( new billete(10, 2, "10.png"));
 var dinero;
 var div = 0;
 var papeles = 0;
+var totalDinero = 0;
+var pruebaClick  = 0;
 
 var resultado = document.getElementById("resultado");
 var billeteImg = document.getElementById("billeteImg");
